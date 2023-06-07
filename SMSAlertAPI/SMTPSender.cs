@@ -27,7 +27,7 @@ namespace SMSAlertAPI
             client.EnableSsl = true;
         }
 
-        public async Task SendMessage(string recipient, string subject, string body) 
+        public async Task SendMessage(string recipient = "", string subject = "", string body = "") 
         {
             // Create message 
             MailMessage message = new MailMessage(username, recipient);
@@ -39,7 +39,6 @@ namespace SMSAlertAPI
 
             return; 
         }
-
 
         //AT&T: <phoneNumber>@txt.att.net
         //Verizon: <phoneNumber>@vtext.com
