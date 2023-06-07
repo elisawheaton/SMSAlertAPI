@@ -13,7 +13,7 @@ namespace SMSAlertAPI.Controllers
 
         public AlertController(IConfiguration configuration)
         {
-            sender = new SMTPSender();
+            sender = new SMTPSender(configuration);
             _jsonString = "";
         }
 

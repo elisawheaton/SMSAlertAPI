@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Routing.Template;
 using System.Net;
 using System.Net.Mail;
-using Newtonsoft.Json; 
+using Newtonsoft.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace SMSAlertAPI
 {
@@ -12,14 +13,16 @@ namespace SMSAlertAPI
         private readonly int port;
         private readonly string username;
         private readonly string password;
-        private readonly SmtpClient client; 
+        private readonly SmtpClient client;
+        private IConfiguration config; 
 
-        public SMTPSender() 
+        public SMTPSender(IConfiguration configuration) 
         {
-            server = "smtp.gmail.com";
-            port = 587;
-            username = "thetoolapp@gmail.com";
-            password = "ocxjxfxnpvviakuj";
+            config = configuration;
+            server = config["SMTPConfiguration:Server"];
+            port = int.Parse(config["SMTPConfiguration:Port"]);
+            username = config["SMTPConfiguration:Username"];
+            password = config["SMTPConfiguration:Password"];
 
             client = new SmtpClient(server, port);
             client.UseDefaultCredentials = false;
