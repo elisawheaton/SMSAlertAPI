@@ -1,9 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Routing.Template;
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
-using Newtonsoft.Json;
-using Microsoft.Extensions.Configuration;
 
 namespace SMSAlertAPI
 {

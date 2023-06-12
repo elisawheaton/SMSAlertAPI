@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.SignalR;
-using System.Text.Json.Serialization;
-
+﻿
 namespace SMSAlertAPI.Models
 {
     public class MessagePayload
@@ -14,12 +12,6 @@ namespace SMSAlertAPI.Models
             Recipient = "";
             Subject = "";
             Body = "";
-        }
-        MessagePayload(string rec = "", string sub = "", string bod = "") 
-        {
-            Recipient = rec;
-            Subject = sub;
-            Body = bod; 
         }
     }
 }
